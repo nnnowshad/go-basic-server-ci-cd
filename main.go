@@ -50,7 +50,7 @@ func init() {
 		Title:       "Orrange",
 		Description: "Orrange is red. I love orrange",
 		Price:       180,
-		ImgUrl:      "xxxxxxxxxxxxxx1"
+		ImgUrl:      "xxxxxxxxxxxxxx1",
 	}
 	prod2 := Product{
 		ID:          2,
