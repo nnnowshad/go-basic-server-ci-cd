@@ -32,7 +32,7 @@ type Product struct {
 var productlist []Product
 
 func main() {
-	mux := http.NewServeMux()
+	// mux := http.NewServeMux()
 	mux.HandleFunc("/hello", helloHandler)
 	mux.HandleFunc("/about", aboutHandler)
 	mux.HandleFunc("/getProducts", getProducts)
