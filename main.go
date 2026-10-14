@@ -33,9 +33,9 @@ var productlist []Product
 
 func main() {
 	mux := http.NewServeMux()
-	// mux.HandleFunc("/hello", helloHandler)
-	// mux.HandleFunc("/about", aboutHandler)
-	// mux.HandleFunc("/getProducts", getProducts)
+	mux.HandleFunc("/hello", helloHandler)
+	mux.HandleFunc("/about", aboutHandler)
+	mux.HandleFunc("/getProducts", getProducts)
 	fmt.Println("Server is running on : 3000 port")
 	err := http.ListenAndServe(":3000", mux)
 	if err != nil {
@@ -50,7 +50,7 @@ func init() {
 		Title:       "Orrange",
 		Description: "Orrange is red. I love orrange",
 		Price:       180,
-		ImgUrl:      "xxxxxxxxxxxxxx1",
+		ImgUrl:      "xxxxxxxxxxxxxx1"
 	}
 	prod2 := Product{
 		ID:          2,
