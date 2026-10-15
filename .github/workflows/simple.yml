@@ -18,3 +18,22 @@ jobs:
               run: go build -v main.go
             - name: Run Tests
               run: go test -v ./...
+
+     deploy:
+        needs: build
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout Code
+            uses: actions/checkout@v4
+          - name: Deploy to Remote Server Via SSH
+            uses: appleboy/ssh-action@master
+            with:
+              host: ${{ secrets.SERVER_HOST }}
+              username: ${{ secrets.SERVER_USER }}
+              key: ${{ secrets.SSH_PRIVATE_KEY }}
+              script: |
+                cd  /home/ubuntu/golang-basic-server-test
+                git pull origin master
+                go build -v main.go
+                nohup ./main &
+
